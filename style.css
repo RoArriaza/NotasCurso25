@@ -1,8 +1,8 @@
 
 body {
-    background-color: #f2f2f2;
+    background-color: #f2f2f2; /*blanco no blanco*/
     font-family: Arial, sans-serif;
-    color: #0F69B4;
+    color: #0F69B4; /*azul no clau*/
     margin: 0;
     padding: 0;
     text-align: center;
@@ -21,7 +21,7 @@ body {
     border-radius: 10px;
 }
 .titulo {
-    color: #0F69B4;
+    color: #0F69B4; /*azul Clau*/
 }
 input[type="text"] {
     padding: 10px;
@@ -30,7 +30,7 @@ input[type="text"] {
     width: 60%;
 }
 button {
-    background-color: #06AFA8;
+    background-color: #06AFA8; /*verde Clau*/
     color: white;
     border: none;
     padding: 10px 20px;
@@ -38,7 +38,7 @@ button {
     cursor: pointer;
 }
 button:hover {
-    background-color: #059e98;
+    background-color: #059e98; /*verde no clau*/
 }
 #resultado {
     #resultado {
@@ -50,13 +50,13 @@ button:hover {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     display: inline-block;
     overflow-x: auto;
-    max-width: 100%;
+    max-width: 120%;
 
 table {
     border-collapse: collapse;
     margin-top: 10px;
-    min-width: 2200px; 
-    width: 120%;
+    min-width: 800px; 
+    width: 100%;
 }
 
 th, td {
@@ -66,7 +66,7 @@ th, td {
 }
 
 th {
-    background-color: #06AFA8;
+    background-color: #06AFA8; /*verde Clau*/
     color: white;
 }
     

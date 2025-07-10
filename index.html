@@ -138,8 +138,10 @@
         html += `</tr><tr>`;
 
         for (let i = 2; i < filaRut.length; i++) {
-          html += `<td>${filaRut[i]}</td>`;
+  const valorLimpio = filaRut[i]?.replace(/^"|"$/g, "").trim();
+  html += `<td>${valorLimpio}</td>`;
         }
+
 
         html += `</tr></table>`;
         resultadoDiv.innerHTML = html;

@@ -55,7 +55,7 @@ button:hover {
 table {
     border-collapse: collapse;
     margin-top: 10px;
-    min-width: 900px; /* puedes ajustar este valor si quieres forzar una base más ancha */
+    min-width: 1200px; /* puedes ajustar este valor si quieres forzar una base más ancha */
     width: 100%;
 }
 

@@ -91,66 +91,66 @@
     <div id="mensajeError" class="error" style="display:none;"></div>
   </div>
 
-  <script>
-    const urlCSV = "const urlCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRZd8W4E7sZFWNKs73W9aQFYKkVocaLQEz6_R3TtNQOTwyCcbUHTTgYT535GuaC1g/pub?gid=1234035252&single=true&output=csv";
-";
+<script>
+  const urlCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRZd8W4E7sZFWNKs73W9aQFYKkVocaLQEz6_R3TtNQOTwyCcbUHTTgYT535GuaC1g/pub?gid=1234035252&single=true&output=csv";
 
-    function consultarNotas() {
-      const rut = document.getElementById("rutInput").value.trim();
-      const resultadoDiv = document.getElementById("resultado");
-      const mensajeError = document.getElementById("mensajeError");
+  function consultarNotas() {
+    const rut = document.getElementById("rutInput").value.trim();
+    const resultadoDiv = document.getElementById("resultado");
+    const mensajeError = document.getElementById("mensajeError");
 
-      resultadoDiv.style.display = "none";
-      mensajeError.style.display = "none";
-      resultadoDiv.innerHTML = "";
-      mensajeError.innerHTML = "";
+    resultadoDiv.style.display = "none";
+    mensajeError.style.display = "none";
+    resultadoDiv.innerHTML = "";
+    mensajeError.innerHTML = "";
 
-      if (!rut) {
-        mensajeError.style.display = "block";
-        mensajeError.innerText = "Por favor, ingresa un RUT.";
-        return;
-      }
-
-      fetch(urlCSV)
-        .then(response => response.text())
-        .then(data => {
-          const filas = data.split("\n").map(f => f.split(","));
-          const encabezados = filas[0];
-          const datos = filas.slice(1);
-
-          const filaRut = datos.find(fila => fila[0] && fila[0].trim() === rut);
-
-          if (!filaRut) {
-            mensajeError.style.display = "block";
-            mensajeError.innerText = "RUT no encontrado. Por favor, verifica e intenta nuevamente.";
-            return;
-          }
-
-          resultadoDiv.style.display = "block";
-          const nombre = filaRut[1];
-
-          let html = `<h2 style="color:#06AFA8;">${nombre}</h2>`;
-          html += `<table><tr>`;
-
-          for (let i = 2; i < encabezados.length; i++) {
-            html += `<th>${encabezados[i]}</th>`;
-          }
-
-          html += `</tr><tr>`;
-
-          for (let i = 2; i < filaRut.length; i++) {
-            html += `<td>${filaRut[i]}</td>`;
-          }
-
-          html += `</tr></table>`;
-          resultadoDiv.innerHTML = html;
-        })
-        .catch(error => {
-          mensajeError.style.display = "block";
-          mensajeError.innerText = "Error al obtener los datos. Intenta nuevamente más tarde.";
-          console.error(error);
-        });
+    if (!rut) {
+      mensajeError.style.display = "block";
+      mensajeError.innerText = "Por favor, ingresa un RUT.";
+      return;
     }
-  </script>
+
+    fetch(urlCSV)
+      .then(response => response.text())
+      .then(data => {
+        const filas = data.split("\n").map(f => f.split(","));
+        const encabezados = filas[0];
+        const datos = filas.slice(1);
+
+        const filaRut = datos.find(fila => fila[0] && fila[0].trim() === rut);
+
+        if (!filaRut) {
+          mensajeError.style.display = "block";
+          mensajeError.innerText = "RUT no encontrado. Por favor, verifica e intenta nuevamente.";
+          return;
+        }
+
+        resultadoDiv.style.display = "block";
+        const nombre = filaRut[1];
+
+        let html = `<h2 style="color:#06AFA8;">${nombre}</h2>`;
+        html += `<table><tr>`;
+
+        for (let i = 2; i < encabezados.length; i++) {
+          html += `<th>${encabezados[i]}</th>`;
+        }
+
+        html += `</tr><tr>`;
+
+        for (let i = 2; i < filaRut.length; i++) {
+          html += `<td>${filaRut[i]}</td>`;
+        }
+
+        html += `</tr></table>`;
+        resultadoDiv.innerHTML = html;
+      })
+      .catch(error => {
+        mensajeError.style.display = "block";
+        mensajeError.innerText = "Error al obtener los datos. Intenta nuevamente más tarde.";
+        console.error(error);
+      });
+  }
+</script>
+
 </body>
 </html>

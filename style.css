@@ -41,6 +41,36 @@ button:hover {
     background-color: #059e98;
 }
 #resultado {
+    #resultado {
     margin-top: 20px;
     font-size: 1rem;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: inline-block;
+    overflow-x: auto;
+    max-width: 100%;
+
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+    min-width: 900px; /* puedes ajustar este valor si quieres forzar una base más ancha */
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #06AFA8;
+    color: white;
+}
+    
+    
+}
+
 }
